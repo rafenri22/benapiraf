@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Redirect root ke admin panel
+    RewriteRule ^$ admin/index.php [L]
+    RewriteRule ^index\.php$ admin/index.php [L]
+    
+    # API Routes
+    RewriteRule ^api/messages/?$ api/messages/index.php [L,QSA]
+    RewriteRule ^api/messages/([0-9]+)/?$ api/messages/detail.php?id=$1 [L,QSA]
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
