@@ -1,5 +1,5 @@
 <?php
-// Redirect ke admin panel
+// Redirect ke admin panell
 header('Location: admin/index.php');
 exit();
 ?>
